@@ -1,11 +1,11 @@
 const Discord = require ("discord.js")
 const dotenv = require("dotenv")
 const { REST } = require("@discordjs/rest")
-const { Routes } = require ("@discord-api-types/v10")
+const { Routes } = require ("discord-api-types/v10")
 const fs = require("fs")
 const { Player } = require ("discord-player")
 
-dotenv.config
+dotenv.config()
 const TOKEN = process.env.TOKEN
 
 const LOAD_SLASH = process.argv[2] == "load"
@@ -15,8 +15,8 @@ const GUILD_ID = "1184825380050305074"
 
 const client = new Discord.Client({
     intents: [
-        "GUILDS",
-        "GUILD_VOICE_STATES"
+        Discord.GatewayIntentBits.Guilds,
+        Discord.GatewayIntentBits.GuildVoiceStates
     ]
 })
 
